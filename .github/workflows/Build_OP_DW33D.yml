@@ -5,15 +5,15 @@
 # Youtube Channel: https://goo.gl/fvkdwm 
 #=================================================
 
-name: yuyu DW33D Build_x86_64
+name: yuyu dw33d 
 
 on: 
   release:
     types: [published]
 
-  #push:
-    #branches: 
-      #- master
+  push:
+    branches: 
+      - master
 
   #schedule:
   #  - cron: 0 8 * * 5
@@ -65,7 +65,7 @@ jobs:
       run: |
         git clone --depth 1 $REPO_URL -b $REPO_BRANCH openwrt
         cd openwrt
-        echo "src-git ssrp https://github.com/fw876/helloworld.git" >> ./feeds.conf.default
+        echo "src-git NueXini_Packages https://github.com/NueXini/NueXini_Packages.git" >> ./feeds.conf.default
         
     - name: Update & Install feeds
       working-directory: ./openwrt
@@ -111,3 +111,4 @@ jobs:
       with:
         name: OpenWrt
         path: openwrt/bin
+        
